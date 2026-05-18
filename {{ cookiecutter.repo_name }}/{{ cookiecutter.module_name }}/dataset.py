@@ -4,7 +4,12 @@ from loguru import logger
 from tqdm import tqdm
 import typer
 
-from {{ cookiecutter.module_name }}.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
+from {{ cookiecutter.module_name }}.config import (
+    EXTERNAL_DATA_DIR,
+    INTERIM_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    RAW_DATA_DIR,
+)
 
 app = typer.Typer()
 
@@ -16,6 +21,9 @@ def main(
     output_path: Path = PROCESSED_DATA_DIR / "dataset.csv",
     # ----------------------------------------------
 ):
+    for data_dir in (RAW_DATA_DIR, INTERIM_DATA_DIR, PROCESSED_DATA_DIR, EXTERNAL_DATA_DIR):
+        data_dir.mkdir(parents=True, exist_ok=True)
+
     # ---- REPLACE THIS WITH YOUR OWN CODE ----
     logger.info("Processing dataset...")
     for i in tqdm(range(10), total=10):

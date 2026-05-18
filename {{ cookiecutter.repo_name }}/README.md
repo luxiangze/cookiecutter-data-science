@@ -47,7 +47,7 @@
     │
     ├── dataset.py              <- Scripts to download or generate data
     │
-    ├── features.py             <- Code to create features for modeling
+    ├── code_scaffold.py        <- Generic code scaffold for project scripts
     │
     ├── modeling                
     │   ├── __init__.py 

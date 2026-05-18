@@ -75,6 +75,7 @@ def verify_folders(root, config):
     if config["include_code_scaffold"] == "Yes":
         expected_dirs += [
             f"{config['module_name']}/modeling",
+            f"{config['module_name']}/utils",
         ]
 
     if config["docs"] == "mkdocs":
@@ -125,11 +126,14 @@ def verify_files(root, config):
         expected_files += [
             f"{config['module_name']}/config.py",
             f"{config['module_name']}/dataset.py",
-            f"{config['module_name']}/features.py",
+            f"{config['module_name']}/code_scaffold.py",
             f"{config['module_name']}/modeling/__init__.py",
             f"{config['module_name']}/modeling/train.py",
             f"{config['module_name']}/modeling/predict.py",
             f"{config['module_name']}/plots.py",
+            f"{config['module_name']}/utils/__init__.py",
+            f"{config['module_name']}/utils/run_cmd.py",
+            "notebooks/notebook_scaffold.ipynb",
         ]
 
     if config["docs"] == "mkdocs":

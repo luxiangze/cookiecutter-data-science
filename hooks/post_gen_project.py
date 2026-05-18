@@ -119,4 +119,6 @@ for generated_path in Path("{{ cookiecutter.module_name }}").iterdir():
     elif generated_path.name == "__init__.py":
         # remove any content in __init__.py since it won't be available
         generated_path.write_text("")
+
+Path("notebooks/notebook_scaffold.ipynb").unlink(missing_ok=True)
 # {% endif %}
