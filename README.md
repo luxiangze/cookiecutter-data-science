@@ -33,7 +33,7 @@ pip install cookiecutter-data-science
 To start a new project, run:
 
 ```bash
-ccds
+ccds https://github.com/luxiangze/cookiecutter-data-science -c master
 ```
 
 ### The resulting directory structure
