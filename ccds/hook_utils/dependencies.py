@@ -143,7 +143,7 @@ def write_dependencies(
 
         # If using pixi, add pixi-specific configuration
         if environment_manager == "pixi":
-            # Add pixi project configuration
+            # Add pixi workspace configuration
             if "tool" not in doc:
                 doc["tool"] = tomlkit.table()
             if "pixi" not in doc["tool"]:
@@ -159,10 +159,10 @@ def write_dependencies(
                 description,
             )
 
-            # Add project configuration
-            doc["tool"]["pixi"]["project"] = tomlkit.table()
+            # Add workspace configuration
+            doc["tool"]["pixi"]["workspace"] = tomlkit.table()
             for key, value in project_config.items():
-                doc["tool"]["pixi"]["project"][key] = value
+                doc["tool"]["pixi"]["workspace"][key] = value
 
             # Add conda dependencies
             doc["tool"]["pixi"]["dependencies"] = tomlkit.table()
@@ -229,7 +229,7 @@ def write_dependencies(
         )
 
         with open(dependencies, "w") as f:
-            lines = ["[project]"]
+            lines = ["[workspace]"]
 
             # Add project configuration
             for key, value in project_config.items():
