@@ -229,7 +229,7 @@ def write_dependencies(
         )
 
         with open(dependencies, "w") as f:
-            lines = ["[project]"]
+            lines = ["[workspace]"]
 
             # Add project configuration
             for key, value in project_config.items():
